@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, input, output } from '@angular/core';
+import {User} from './user.model';
 @Component({
   imports: [],
   selector: 'app-user',
@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './user.component.html',
 })
 export class UserComponent {
-  name = "Juan";
+ user = input.required<User>();
+ select = output<string>();
+ selected = input.required<boolean>();
 
+  get imagePath(){
+    return 'assets/users/' + this.user().avatar;
+  }
+  onSelectUser(){
+    this.select.emit(this.user().id);
+  }
 }
