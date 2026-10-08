@@ -2,3 +2,9 @@
 <img [src]="imagePath" [alt]="user().name">
 <span> {{ user().name}}</span>
 </button>
+
+<p>{{ message }}</p>
+
+@if (selected()) {
+  <app-tasks [userId]="user().id"></app-tasks>
+}

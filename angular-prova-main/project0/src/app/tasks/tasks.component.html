@@ -1,12 +1,11 @@
-<h1>Juan's tasks</h1>
-<button>Add task</button>
-<div>
-  <h1>Task 1</h1>
-  <p>Due date</p>
-  <p>Task description</p>
-  <button>Complete</button>
-</div>
-<div class="task-card">
 
+<button type="button">Add task</button>
 
-</div>
+@for (task of userTasks; track task.id) {
+  <div class="task-card">
+    <h2>{{ task.title }}</h2>
+    <p>Due date: {{ formatDate(task.dueDate) }}</p>
+    <p>{{ task.summary }}</p>
+    <button type="button">Complete</button>
+  </div>
+}
